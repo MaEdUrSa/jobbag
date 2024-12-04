@@ -1,0 +1,13 @@
+ <h3 class = "text-center">Postulaciones</h3>
+ <ul>
+    <% @posts.each do |post| %>
+        <li>
+            <%= post.observation %> -
+            <%#= post.actions.find_by(customer_id: current_customer.id).kind %>
+             <%= post.find_kind_user_relation(current_user) %>
+            <p>
+                <%= link_to "Ver postulacion", post , class:"btn btn-success px-4 py-2 mb-2 mt-2  gap-3"%>
+            </p>
+        </li>
+    <% end %>
+ </ul>

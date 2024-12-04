@@ -1,0 +1,56 @@
+<p style="color: green"><%#= notice %></p>
+
+<% content_for :title, "Posts" %>
+
+<h3 class= "text-center">Estas son las ofertas laborales</h3>
+
+<div id="posts">
+
+<table class="table table-striped">
+      <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Solicitud </th>
+      <th scope="col">Nueva oferta de laboral</th>
+         <th scope="col">Postulación</th>
+      <%# <th scope="col">nro. de postulación</th> %>
+    </tr>
+  </thead>
+<tbody>
+
+  <% @cuenta = 0 %> 
+  <% @posts.each do |post| %>
+  <% @cuenta = @cuenta + 1 %> 
+    <tr>
+      <th scope="row"><%= @cuenta %>  </th>
+      <td> <%= post.observation %> </td>
+        <td>
+          <% if post.asset?%>
+                Activa    
+                <%#= link_to "Ver", post, class: "btn btn-success px-3 py-1 mb-1 mt-1 btn-sm  justify-end" %>
+            <% else %>
+                NO Activa   
+            
+            <% end %>
+            <%# <div class="d-grid gap-2 d-md-flex justify-content-md-end"> %>
+            
+            <%# </div> %>
+          </td>
+          <td>
+              <%= link_to "Ver", post, class: "btn btn-success px-3 py-1 mb-1 mt-1 btn-sm  justify-end" %>
+          </td>
+    </tr>
+
+  <% end %> 
+</tbody>
+
+
+
+
+</table>
+
+
+
+</div>
+
+<%= link_to "Nueva postulación", new_post_path,  class: "btn btn-success px-3 py-1 mb-1 mt-1 btn-sm  justify-end" %>
